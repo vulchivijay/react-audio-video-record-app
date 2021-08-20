@@ -19,6 +19,7 @@ export default function RecordingsList({ audio }) {
               {recordings.map((record) => (
                 <div className="record" key={record.key}>
                   <audio controls src={record.audio} />
+                  <span className="is-recorded-time">date and time</span>
                   <div className="delete-button-container">
                     <button
                       className="delete-button"
@@ -35,11 +36,68 @@ export default function RecordingsList({ audio }) {
           <div className="accordian-title">
             <FontAwesomeIcon icon={faChevronRight} /><span>This week</span>
           </div>
+          <div className="accordian-content">
+            <div className="recordings-list">
+              {recordings.map((record) => (
+                <div className="record" key={record.key}>
+                  <audio controls src={record.audio} />
+                  <span className="is-recorded-time">date and time</span>
+                  <div className="delete-button-container">
+                    <button
+                      className="delete-button"
+                      title="Delete this audio"
+                      onClick={() => deleteAudio(record.key)}
+                    >
+                      <FontAwesomeIcon icon={faTrashAlt} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="accordian-title">
             <FontAwesomeIcon icon={faChevronRight} /><span>Last week</span>
           </div>
+          <div className="accordian-content">
+            <div className="recordings-list">
+              {recordings.map((record) => (
+                <div className="record" key={record.key}>
+                  <audio controls src={record.audio} />
+                  <span className="is-recorded-time">date and time</span>
+                  <div className="delete-button-container">
+                    <button
+                      className="delete-button"
+                      title="Delete this audio"
+                      onClick={() => deleteAudio(record.key)}
+                    >
+                      <FontAwesomeIcon icon={faTrashAlt} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="accordian-title">
             <FontAwesomeIcon icon={faChevronRight} /><span>Old</span>
+          </div>
+          <div className="accordian-content">
+            <div className="recordings-list">
+              {recordings.map((record) => (
+                <div className="record" key={record.key}>
+                  <audio controls src={record.audio} />
+                  <span className="is-recorded-time">date and time</span>
+                  <div className="delete-button-container">
+                    <button
+                      className="delete-button"
+                      title="Delete this audio"
+                      onClick={() => deleteAudio(record.key)}
+                    >
+                      <FontAwesomeIcon icon={faTrashAlt} />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </>
       ) : (
