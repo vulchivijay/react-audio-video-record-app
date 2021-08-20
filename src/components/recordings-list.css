@@ -6,6 +6,15 @@
   overflow-y: auto;
 }
 
+.recordings-container ul {
+  margin: 0;
+  padding: 0;
+}
+
+.recordings-container li {
+  list-style: none;
+}
+
 .recordings-container h1 {
   margin-bottom: 1rem;
   text-align: center;
@@ -40,6 +49,18 @@
 
 .accordian-title span {
   padding-left: 15px;
+}
+
+.accordian-content {
+  display: none;
+}
+
+.recordings-container li.active .fa-chevron-right {
+  transform: rotate(90deg);
+}
+
+.recordings-container li.active .accordian-content {
+  display: block;
 }
 
 .record {

@@ -28,7 +28,6 @@ export default function RecorderControls({ recorderState, handlers }) {
       </div>
       <div className="recorder-display">
         <div className="recording-time">
-          {initRecording && <div className="recording-indicator"></div>}
           <span>{formatMinutes(recordingMinutes)}</span>
           <span>:</span>
           <span>{formatSeconds(recordingSeconds)}</span>
