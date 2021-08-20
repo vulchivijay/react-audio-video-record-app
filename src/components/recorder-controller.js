@@ -14,7 +14,6 @@ export default function RecorderControls({ recorderState, handlers }) {
 
   return (
     <div className="controls-container">
-      { user ? '' : <h1>You can check now.</h1> }
       <div className="recorder-waves">
         {initRecording && 
         <div id='bars'>
@@ -40,7 +39,7 @@ export default function RecorderControls({ recorderState, handlers }) {
       <div className="start-button-container">
         {initRecording && (
           <button className="cancel-button" title="Cancel recording" onClick={cancelRecording}>
-            <FontAwesomeIcon icon={faTimes} />
+            <FontAwesomeIcon icon={faTimes} size="2x" />
           </button>
         )}
         {initRecording ? (
@@ -58,6 +57,7 @@ export default function RecorderControls({ recorderState, handlers }) {
           </button>
         )}
       </div>
+      { user ? '' : <h1>You can check now.</h1> }
     </div>
   );
 }

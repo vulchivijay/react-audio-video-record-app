@@ -12,6 +12,7 @@ import './App.css';
 function App() {
   const { recorderState, ...handlers } = useRecorder();
   const { audio } = recorderState;
+  
   return (
     <UserProvider>
       <div className="App">
