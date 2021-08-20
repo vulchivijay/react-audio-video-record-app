@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import RecorderController from './components/recorder-controller';
+import RecordingsList from './components/recordings-list';
+import useRecorder from './hooks/useRecorder';
+
 import './App.css';
 
 function App() {
+  const { recorderState, ...handlers } = useRecorder();
+  const { audio } = recorderState;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section>
+        <h1>Voice Recorder</h1>
+        <div>
+          <RecorderController recorderState={recorderState} handlers={handlers} />
+          <RecordingsList audio={audio} />
+        </div>
+      </section>
     </div>
   );
 }
