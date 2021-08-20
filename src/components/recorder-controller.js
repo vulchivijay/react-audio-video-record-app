@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMicrophone, faTimes, faSave } from "@fortawesome/free-solid-svg-icons";
 import { formatMinutes, formatSeconds } from "./../utils/format-time";
+import { UserContext } from './../providers/index';
 
 import './recorder-controller.css';
 import './waves.css';
@@ -8,10 +10,11 @@ import './waves.css';
 export default function RecorderControls({ recorderState, handlers }) {
   const { recordingMinutes, recordingSeconds, initRecording } = recorderState;
   const { startRecording, saveRecording, cancelRecording } = handlers;
+  const user = useContext(UserContext);
 
   return (
     <div className="controls-container">
-      <h1>You can check now.</h1>
+      { user ? '' : <h1>You can check now.</h1> }
       <div className="recorder-waves">
         {initRecording && 
         <div id='bars'>
