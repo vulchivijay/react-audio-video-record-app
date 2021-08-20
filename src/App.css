@@ -12,6 +12,11 @@ header {
   background: #ffffff;
 }
 
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 footer {
   height: 30px;
   font-size: 12px;

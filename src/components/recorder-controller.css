@@ -10,6 +10,7 @@
 
 .recorder-waves {
   position: relative;
+  height: 50px;
 }
 
 .recording-time {

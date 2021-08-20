@@ -11,6 +11,7 @@ export default function RecorderControls({ recorderState, handlers }) {
 
   return (
     <div className="controls-container">
+      <h1>You can check now.</h1>
       <div className="recorder-waves">
         {initRecording && 
         <div id='bars'>
