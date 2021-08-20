@@ -19,6 +19,10 @@
   animation-iteration-count: infinite;
 }
 
+.recorder-waves {
+  position: relative;
+}
+
 .recording-time {
   display: flex;
   align-items: center;

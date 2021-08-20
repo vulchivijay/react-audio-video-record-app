@@ -3,6 +3,7 @@ import { faMicrophone, faTimes, faSave } from "@fortawesome/free-solid-svg-icons
 import { formatMinutes, formatSeconds } from "./../utils/format-time";
 
 import './recorder-controller.css';
+import './waves.css';
 
 export default function RecorderControls({ recorderState, handlers }) {
   const { recordingMinutes, recordingSeconds, initRecording } = recorderState;
@@ -11,7 +12,19 @@ export default function RecorderControls({ recorderState, handlers }) {
   return (
     <div className="controls-container">
       <div className="recorder-waves">
-        Waves
+        {initRecording && 
+        <div id='bars'>
+          <div className='bar'></div>
+          <div className='bar'></div>
+          <div className='bar'></div>
+          <div className='bar'></div>
+          <div className='bar'></div>
+          <div className='bar'></div>
+          <div className='bar'></div>
+          <div className='bar'></div>
+          <div className='bar'></div>
+          <div className='bar'></div>
+        </div> }
       </div>
       <div className="recorder-display">
         <div className="recording-time">
