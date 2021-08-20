@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt, faExclamationCircle, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import useRecordingsList from "./../hooks/use-recording-list";
 
 import './recordings-list.css';
@@ -11,22 +11,35 @@ export default function RecordingsList({ audio }) {
     <div className="recordings-container">
       {recordings.length > 0 ? (
         <>
-          <h1>Your recordings</h1>
-          <div className="recordings-list">
-            {recordings.map((record) => (
-              <div className="record" key={record.key}>
-                <audio controls src={record.audio} />
-                <div className="delete-button-container">
-                  <button
-                    className="delete-button"
-                    title="Delete this audio"
-                    onClick={() => deleteAudio(record.key)}
-                  >
-                    <FontAwesomeIcon icon={faTrashAlt} />
-                  </button>
+          <div className="accordian-title">
+            <FontAwesomeIcon icon={faChevronRight} /><span>Today</span>
+          </div>
+          <div className="accordian-content">
+            <div className="recordings-list">
+              {recordings.map((record) => (
+                <div className="record" key={record.key}>
+                  <audio controls src={record.audio} />
+                  <div className="delete-button-container">
+                    <button
+                      className="delete-button"
+                      title="Delete this audio"
+                      onClick={() => deleteAudio(record.key)}
+                    >
+                      <FontAwesomeIcon icon={faTrashAlt} />
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+          <div className="accordian-title">
+            <FontAwesomeIcon icon={faChevronRight} /><span>This week</span>
+          </div>
+          <div className="accordian-title">
+            <FontAwesomeIcon icon={faChevronRight} /><span>Last week</span>
+          </div>
+          <div className="accordian-title">
+            <FontAwesomeIcon icon={faChevronRight} /><span>Old</span>
           </div>
         </>
       ) : (

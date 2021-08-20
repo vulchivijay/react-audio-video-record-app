@@ -1,6 +1,5 @@
 .recordings-container {
   width: 40%;
-  padding: 15px;
   border-right: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
 }
@@ -37,24 +36,43 @@
 
 .recordings-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  padding: 1rem 0.5rem;
   overflow-y: auto;
 }
 
+.accordian-title {
+  padding: 15px;
+  font-weight: bold;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+
+.accordian-title span {
+  padding-left: 15px;
+}
+
 .record {
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
-  padding: 0.5rem;
+  padding-bottom: 0.5rem;
   background: #ffffff;
 }
 
+.record:last-child {
+  padding-bottom: 0;
+}
+
 .record audio {
-  min-width: 80%;
-  max-width: 60%;
+  min-width: 90%;
+  max-width: 70%;
+  height: 40px;
 }
 
 .delete-button-container {
-  min-width: 20%;
+  min-width: 10%;
   max-width: 10%;
   display: grid;
   place-content: center;
