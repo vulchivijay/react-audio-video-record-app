@@ -43,10 +43,10 @@ export const uploadBlob = (blob, user) => {
   const userFolder = user.email.replace("@gmail.com", "");
   var currentdate = new Date(); 
   var datetime = currentdate.getDate() + "-"
-                + (currentdate.getMonth()+1)  + "-" 
-                + currentdate.getFullYear() + "---"  
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
+                + (currentdate.getMonth()+1)  + "-"
+                + currentdate.getFullYear() + "---"
+                + currentdate.getHours() + "-"
+                + currentdate.getMinutes() + "-"
                 + currentdate.getSeconds();
   const ref = firebase.storage().ref().child(`voices/${userFolder}/${datetime}.webm`);
 
