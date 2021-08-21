@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import "firebase/auth";
+import "firebase/storage";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -33,4 +34,35 @@ export const logOut = () => {
   }).catch((error) => {
     console.log(error.message);
   })
+}
+
+// File upload
+export const uploadBlob = (blob, user) => {
+  // console.log(blob, user);
+
+  const userFolder = user.email.replace("@gmail.com", "");
+  var currentdate = new Date(); 
+  var datetime = currentdate.getDate() + "-"
+                + (currentdate.getMonth()+1)  + "-" 
+                + currentdate.getFullYear() + "---"  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+  const ref = firebase.storage().ref().child(`voices/${userFolder}/${datetime}.webm`);
+
+  const file = new Blob([blob], {type: "audio/webm"});
+  // console.log("test: ", file);
+
+  // [START storage_upload_metadata]
+  // Create file metadata including the content type
+  var metadata = {
+    contentType: 'audio/webm',
+  };
+
+  // [START storage_upload_blob]
+  // 'file' comes from the Blob or File API
+  ref.put(file, metadata).then((snapshot) => {
+    console.log('Uploaded a blob or file!', snapshot);
+  });
+  // [END storage_upload_blob]
 }

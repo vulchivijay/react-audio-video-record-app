@@ -20,6 +20,11 @@
   font-size: 4rem;
 }
 
+.recording-time > * {
+  display: inline-block;
+  vertical-align: center;
+}
+
 .cancel-button-container {
   animation-name: animated-block;
   animation-duration: 2s;

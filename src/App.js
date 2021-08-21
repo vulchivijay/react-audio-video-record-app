@@ -7,7 +7,7 @@ import UserProvider from "./providers/index";
 import Header from './components/header';
 import Footer from './components/footer';
 
-import './App.css';
+import './styles/App.css';
 
 function App() {
   const { recorderState, ...handlers } = useRecorder();

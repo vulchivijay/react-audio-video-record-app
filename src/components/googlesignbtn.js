@@ -3,7 +3,7 @@ import { signInWithGoogle, logOut } from "../config/firebase";
 import { UserContext } from './../providers/index';
 import { Redirect } from "react-router-dom";
 
-import './googlesignbtn.css';
+import './../styles/googlesignbtn.css';
 
 export default function Login() {
   const user = useContext(UserContext);

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faExclamationCircle, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import useRecordingsList from "./../hooks/use-recording-list";
 
-import './recordings-list.css';
+import './../styles/recordings-list.css';
 
 export default function RecordingsList({ audio }) {
   const { recordings, deleteAudio } = useRecordingsList(audio);

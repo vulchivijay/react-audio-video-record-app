@@ -17,7 +17,7 @@ export default function useRecorder() {
     const MAX_RECORDER_TIME = 5;
     let recordingInterval = null;
 
-    if (recorderState.initRecording)
+    if (recorderState.initRecording) {
       recordingInterval = setInterval(() => {
         setRecorderState((prevState) => {
           if (
@@ -42,19 +42,21 @@ export default function useRecorder() {
             };
         });
       }, 1000);
+    }
     else clearInterval(recordingInterval);
 
     return () => clearInterval(recordingInterval);
   });
 
   useEffect(() => {
-    if (recorderState.mediaStream)
+    if (recorderState.mediaStream) {
       setRecorderState((prevState) => {
         return {
           ...prevState,
           mediaRecorder: new MediaRecorder(prevState.mediaStream),
         };
       });
+    }
   }, [recorderState.mediaStream]);
 
   useEffect(() => {
