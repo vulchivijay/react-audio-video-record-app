@@ -75,9 +75,9 @@ export default function useRecorder() {
         const blob = new Blob(chunks, { type: "audio/webm; codecs=vp9" });
         chunks = [];
 
+        uploadBlob(blob); // uploading blob to firebase;
         setRecorderState((prevState) => {
           if (prevState.mediaRecorder) {
-            uploadBlob(blob);
             return {
               ...initialState,
               audio: window.URL.createObjectURL(blob),

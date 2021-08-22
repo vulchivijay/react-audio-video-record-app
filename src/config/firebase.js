@@ -22,6 +22,7 @@ const googleProvider = new firebase.auth.GoogleAuthProvider()
 export const signInWithGoogle = () => {
   auth.signInWithPopup(googleProvider).then((res) => {
     console.log(res.user);
+    window.location.reload(false);
   }).catch((error) => {
     console.log(error.message);
   })
@@ -37,7 +38,7 @@ export const logOut = () => {
 }
 
 // File upload
-export const uploadBlob = (blob, user) => {
+export const uploadBlob = (blob) => {
   auth.onAuthStateChanged(async (user) => {
     if (user) {
       const { email }  = user;
@@ -63,3 +64,46 @@ export const uploadBlob = (blob, user) => {
     }
   });
 }
+
+// Get audio files based on signed in user.
+// export const getAudios = () => {
+//   auth.onAuthStateChanged(async (user) => {
+//     if (user) {
+//       //1.
+//       let storageRef = firebase.storage().ref();
+//       //2.
+//       storageRef
+//         .listAll()
+//         .then(function(res) {
+//           console.log('res: ', res);
+//           //3.
+//           res.items.forEach(imageRef => {
+//             imageRef.getDownloadURL().then(url => {
+//               //4.
+//               setImages(allImages => [...allImages, url]);
+//             });
+//           });
+//         })
+//         .catch(function(error) {
+//           console.log(error);
+//         });
+//     }
+//   });
+// };
+
+// Delete audio files based on signed in user.
+// const deleteFromFirebase = url => {
+//   //1.
+//   let pictureRef = storage.refFromURL(url);
+//   //2.
+//   pictureRef
+//     .delete()
+//     .then(() => {
+//       //3.
+//       setImages(allImages.filter(image => image !== url));
+//       alert('Picture is deleted successfully!');
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// };

@@ -14,4 +14,6 @@ Record your daily activities from web browser. No paper work. Store your recorde
 
 ![image](https://github.com/vulchivijay/voice-recorder-with-reactjs/blob/main/public/screenshot/desktop.jpg)
 
+![image](https://github.com/vulchivijay/voice-recorder-with-reactjs/blob/main/public/screenshot/desktop-signed-in-user.jpg)
+
 ![image](https://github.com/vulchivijay/voice-recorder-with-reactjs/blob/main/public/screenshot/mobile.jpg)
