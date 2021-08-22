@@ -20,9 +20,8 @@
   font-size: 4rem;
 }
 
-.recording-time > * {
-  display: inline-block;
-  vertical-align: center;
+.clock-colon {
+  padding-bottom: 20px;
 }
 
 .cancel-button-container {

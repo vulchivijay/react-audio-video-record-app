@@ -32,7 +32,7 @@ export default function RecorderControls({ recorderState, handlers }) {
       <div className="recorder-display">
         <div className="recording-time">
           <span>{formatMinutes(recordingMinutes)}</span>
-          <span>:</span>
+          <span className="clock-colon">:</span>
           <span>{formatSeconds(recordingSeconds)}</span>
         </div>
       </div>

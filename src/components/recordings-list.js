@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from './../providers/index';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt, faExclamationCircle, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import useRecordingsList from "./../hooks/use-recording-list";
@@ -6,11 +7,16 @@ import useRecordingsList from "./../hooks/use-recording-list";
 import './../styles/recordings-list.css';
 
 export default function RecordingsList({ audio }) {
-  const { recordings, deleteAudio } = useRecordingsList(audio);
-  const [active, setActive] = useState(0);
+  let audioFiles = audio;
+  const user = useContext(UserContext);
+  if (user) {
+    audioFiles = "";
+  }
+  const { recordings, deleteAudio } = useRecordingsList(audioFiles);
+  const [active, setActive] = useState(-1);
 
   const accordianToggle = (index) => {
-    if (index === active) setActive(0);
+    if (index === active) setActive(-1);
     else setActive(index);
   }
 
@@ -32,7 +38,7 @@ export default function RecordingsList({ audio }) {
                   {recordings.map((record) => (
                     <div className="record" key={record.key}>
                       <audio controls src={record.audio} />
-                      <span className="is-recorded-time">date and time</span>
+                      {user ? <span className="is-recorded-time">date and time</span> : ""} 
                       <div className="delete-button-container">
                         <button
                           className="delete-button"

@@ -45,6 +45,7 @@
   font-weight: bold;
   border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
+  cursor: pointer;
 }
 
 .accordian-title span {
@@ -69,7 +70,7 @@
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  padding-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
   background: #ffffff;
 }
 
