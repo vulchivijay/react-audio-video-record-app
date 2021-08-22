@@ -1,11 +1,13 @@
 import { useContext } from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMicrophone, faTimes, faSave } from "@fortawesome/free-solid-svg-icons";
 import { formatMinutes, formatSeconds } from "./../utils/format-time";
 import { UserContext } from './../providers/index';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMicrophone, faTimes, faSave } from "@fortawesome/free-solid-svg-icons";
+
 import './../styles/recorder-controller.css';
 import './../styles/waves.css';
+
 
 export default function RecorderControls({ recorderState, handlers }) {
   const { recordingMinutes, recordingSeconds, initRecording } = recorderState;
