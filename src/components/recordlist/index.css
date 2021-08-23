@@ -10,6 +10,17 @@
   background: #000000;
 }
 
+.data-loader {
+  width: 35%;
+  height: 10px;
+  background: #eeeeee;
+}
+.data-loader.data-loader_audio {
+  width: 100%;
+  height: 54px;
+  margin-bottom: 5px;
+}
+
 .records-list {
   width: 40%;
   overflow: hidden;
@@ -27,7 +38,8 @@
 }
 
 .accordian-title span {
-  padding-left: 10px;
+  display: inline-block;
+  margin-left: 10px;
 }
 
 .accordian-content {

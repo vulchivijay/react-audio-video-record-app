@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from './../../providers/index';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
@@ -6,6 +7,7 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import './index.css';
 
 export default function RecordList () {
+  const user = useContext(UserContext);
   const [active, setActive] = useState(-1);
   
   const accordianToggle = (index) => {
@@ -23,9 +25,22 @@ export default function RecordList () {
           className={0 === active ? 'active' : ''}
         >
           <div className="accordian-title">
-            <FontAwesomeIcon icon={faChevronRight} /><span>Today</span>
+            <FontAwesomeIcon icon={faChevronRight} />
+            {user ? (<span>Today</span>) : (<span className="data-loader"></span>)} 
           </div>
-          <div className="accordian-content">Today</div>
+          <div className="accordian-content">
+            {user ?
+              (<div>Recorded videos has to display here for sign in users.</div>)
+              :
+              (
+                <div>
+                  <div className="data-loader data-loader_audio"></div>
+                  <div className="data-loader data-loader_audio"></div>
+                  <div className="data-loader data-loader_audio"></div>
+                </div>
+              )
+            }
+          </div>
         </li>
         <li
           key={1}
@@ -33,9 +48,22 @@ export default function RecordList () {
           className={1 === active ? 'active' : ''}
         >
           <div className="accordian-title">
-            <FontAwesomeIcon icon={faChevronRight} /><span>Yesterday</span>
+            <FontAwesomeIcon icon={faChevronRight} />
+            {user ? (<span>Today</span>) : (<span className="data-loader"></span>)} 
           </div>
-          <div className="accordian-content">Yesterday</div>
+          <div className="accordian-content">
+            {user ?
+              (<div>Recorded videos has to display here for sign in users.</div>)
+              :
+              (
+                <div>
+                  <div className="data-loader data-loader_audio"></div>
+                  <div className="data-loader data-loader_audio"></div>
+                  <div className="data-loader data-loader_audio"></div>
+                </div>
+              )
+            }
+          </div>
         </li>
         <li
           key={2}
@@ -43,29 +71,22 @@ export default function RecordList () {
           className={2 === active ? 'active' : ''}
         >
           <div className="accordian-title">
-            <FontAwesomeIcon icon={faChevronRight} /><span>Last Week</span>
+            <FontAwesomeIcon icon={faChevronRight} />
+            {user ? (<span>Today</span>) : (<span className="data-loader"></span>)} 
           </div>
-          <div className="accordian-content">Last Week</div>
-        </li>
-        <li
-          key={3}
-          onClick={() => accordianToggle(3)}
-          className={3 === active ? 'active' : ''}
-        >
-          <div className="accordian-title">
-            <FontAwesomeIcon icon={faChevronRight} /><span>Last Month</span>
+          <div className="accordian-content">
+            {user ?
+              (<div>Recorded videos has to display here for sign in users.</div>)
+              :
+              (
+                <div>
+                  <div className="data-loader data-loader_audio"></div>
+                  <div className="data-loader data-loader_audio"></div>
+                  <div className="data-loader data-loader_audio"></div>
+                </div>
+              )
+            }
           </div>
-          <div className="accordian-content">Last Month</div>
-        </li>
-        <li
-          key={4}
-          onClick={() => accordianToggle(4)}
-          className={4 === active ? 'active' : ''}
-        >
-          <div className="accordian-title">
-            <FontAwesomeIcon icon={faChevronRight} /><span>Old</span>
-          </div>
-          <div className="accordian-content">Old</div>
         </li>
       </ul>
     </div>

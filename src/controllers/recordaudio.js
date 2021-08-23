@@ -1,6 +1,7 @@
 let audioChunks = [];
 let rec;
 export const StartRecording = 0;
+export const RecordInitializer = false;
 
 export const RecordStart = () => {
   navigator.mediaDevices.getUserMedia( { audio : true } )
