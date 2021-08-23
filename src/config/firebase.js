@@ -39,71 +39,28 @@ export const logOut = () => {
 
 // File upload
 export const uploadBlob = (blob) => {
-  auth.onAuthStateChanged(async (user) => {
-    if (user) {
-      const { email }  = user;
-      const userFolder = email.replace("@gmail.com", "");
-      const createdAt = Date.now();
-      const ref = firebase.storage().ref().child(`voices/${userFolder}/${createdAt}.webm`);
+  // auth.onAuthStateChanged(async (user) => {
+  //   if (user) {
+  //     const { email }  = user;
+  //     const userFolder = email.replace("@gmail.com", "");
+  //     const createdAt = Date.now();
+  //     const ref = firebase.storage().ref().child(`voices/${userFolder}/${createdAt}.webm`);
     
-      // [START storage_upload_metadata]
-      // Create file metadata including the content type
-      var metadata = {
-        contentType: 'audio/webm',
-      };
+  //     // [START storage_upload_metadata]
+  //     // Create file metadata including the content type
+  //     var metadata = {
+  //       contentType: 'audio/webm',
+  //     };
     
-      // [START storage_upload_blob]
-      // 'file' comes from the Blob or File API
-      ref.put(blob, metadata).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
-      });
-      // [END storage_upload_blob]
-    }
-    else {
-      console.log("Sign in required to store the file!");
-    }
-  });
+  //     // [START storage_upload_blob]
+  //     // 'file' comes from the Blob or File API
+  //     ref.put(blob, metadata).then((snapshot) => {
+  //       console.log('Uploaded a blob or file!');
+  //     });
+  //     // [END storage_upload_blob]
+  //   }
+  //   else {
+  //     console.log("Sign in required to store the file!");
+  //   }
+  // });
 }
-
-// Get audio files based on signed in user.
-// export const getAudios = () => {
-//   auth.onAuthStateChanged(async (user) => {
-//     if (user) {
-//       //1.
-//       let storageRef = firebase.storage().ref();
-//       //2.
-//       storageRef
-//         .listAll()
-//         .then(function(res) {
-//           console.log('res: ', res);
-//           //3.
-//           res.items.forEach(imageRef => {
-//             imageRef.getDownloadURL().then(url => {
-//               //4.
-//               setImages(allImages => [...allImages, url]);
-//             });
-//           });
-//         })
-//         .catch(function(error) {
-//           console.log(error);
-//         });
-//     }
-//   });
-// };
-
-// Delete audio files based on signed in user.
-// const deleteFromFirebase = url => {
-//   //1.
-//   let pictureRef = storage.refFromURL(url);
-//   //2.
-//   pictureRef
-//     .delete()
-//     .then(() => {
-//       //3.
-//       setImages(allImages.filter(image => image !== url));
-//       alert('Picture is deleted successfully!');
-//     })
-//     .catch(err => {
-//       console.log(err);
-//     });
-// };

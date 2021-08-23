@@ -1,0 +1,4 @@
+.recordvoice-wrapper {
+  display: flex;
+  height: calc(100vh - 99px);
+}

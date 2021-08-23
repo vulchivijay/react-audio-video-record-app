@@ -1,14 +1,14 @@
-import Header from './components/header';
-import RecordVoice from './components/recordvoice';
-import Footer from './components/footer';
+import Header from './components/header/index';
+import RecordVoiceView from './components/recordvoice/index';
+import Footer from './components/footer/index';
 
-import './styles/App.css';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app-wrapper">
       <Header />
-      <RecordVoice />
+      <RecordVoiceView />
       <Footer />
     </div>
   );

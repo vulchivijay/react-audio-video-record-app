@@ -12,57 +12,57 @@
   bottom: 1px;
   height: 3px;
   position: absolute;
-  width: 3px;
+  width: 5px;
   animation: sound 0ms -800ms linear infinite alternate;
 }
 
 .bar:nth-child(1) {
-  left: 1px;
+  left: 3px;
   animation-duration: 474ms;
 }
 
 .bar:nth-child(2) {
-  left: 5px;
+  left: 7px;
   animation-duration: 433ms;
 }
 
 .bar:nth-child(3) {
-  left: 9px;
+  left: 11px;
   animation-duration: 407ms;
 }
 
 .bar:nth-child(4) {
-  left: 13px;
+  left: 15px;
   animation-duration: 458ms;
 }
 
 .bar:nth-child(5) {
-  left: 17px;
+  left: 19px;
   animation-duration: 400ms;
 }
 
 .bar:nth-child(6) {
-  left: 21px;
+  left: 23px;
   animation-duration: 427ms;
 }
 
 .bar:nth-child(7) {
-  left: 25px;
+  left: 27px;
   animation-duration: 441ms;
 }
 
 .bar:nth-child(8) {
-  left: 29px;
+  left: 31px;
   animation-duration: 419ms;
 }
 
 .bar:nth-child(9) {
-  left: 33px;
+  left: 35px;
   animation-duration: 487ms;
 }
 
 .bar:nth-child(10) {
-  left: 37px;
+  left: 39px;
   animation-duration: 442ms;
 }
 

@@ -1,0 +1,57 @@
+.recorder {
+  display: flex;
+  width: 60%;
+  padding: 15px;
+  overflow: hidden;
+  justify-content: center;
+  flex-direction: column;
+  border-left: 1px solid #dddddd;
+  align-items: center;
+}
+
+.recorder-controllers button {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin: 10px;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+              0px 4px 5px 0px rgb(0 0 0 / 14%),
+              0px 1px 10px 0px rgb(0 0 0 / 12%);
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+}
+
+.recorder-animation {
+  position: relative;
+  height: 50px;
+}
+
+.recorder-timer {
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.recorded-audio {
+  height: 54px;
+  margin-top: 15px;
+}
+
+.guest-msg p {
+  margin: 10px 0;
+}
+
+.time-spinner {
+  margin: 0;
+  line-height: 1;
+  font-size: 5rem;
+}
+
+.time-spinner span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dots {
+  padding-bottom: 14px;
+}

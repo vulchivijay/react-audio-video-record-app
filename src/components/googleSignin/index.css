@@ -1,4 +1,4 @@
-.google-login-button {
+.google-auth {
   padding: 5px 0;
   font-size: 0.8rem;
 }
@@ -7,7 +7,7 @@
   font-size: 1.5rem;
 }
 
-.google-login-button button {
+.google-auth button {
   display: flex;
   margin: 5px 0;
   padding: 0 10px;
@@ -19,16 +19,16 @@
   align-items: center;
 }
 
-.google-login-button button:hover {
+.google-auth button:hover {
   background: #ff1804;
 }
 
-.google-login-button span {
+.google-auth span {
   padding-left: 10px;
 }
 
 @media only screen and (min-width: 680px) {
-  .google-login-button {
+  .google-auth {
     display: flex;
     align-items: center;
     padding: 0;
@@ -39,7 +39,7 @@
     font-size: 2rem;
   }
 
-  .google-login-button button {
+  .google-auth button {
     margin: 0;
     margin-left: 10px;
   }

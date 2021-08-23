@@ -1,26 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { signInWithGoogle, logOut } from "../config/firebase";
-import { UserContext } from './../providers/index';
-import { Redirect } from "react-router-dom";
+import React, { useContext } from 'react';
+import { signInWithGoogle, logOut } from "./../../config/firebase";
+import { UserContext } from './../../providers/index';
 
-import './../styles/googlesignbtn.css';
+import './index.css';
 
-export default function Login() {
+export default function GoogleAuth() {
   const user = useContext(UserContext);
-  const [redirect, setredirect] = useState(null);
-
-  useEffect(() => {
-    if (!user) {
-      setredirect("/");
-    }
-  }, [user]);
-
-  if (redirect) {
-    <Redirect to={redirect} />;
-  }
 
   return (
-      <div className="google-login-button">
+      <div className="google-auth">
         { user ? <span>Sign in as: <b>{ user.displayName }</b></span> : <b>To store your records, please</b> }
         { user ?
           <button className="logout-button" onClick={logOut}>

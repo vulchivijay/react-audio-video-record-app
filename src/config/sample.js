@@ -1,6 +1,0 @@
-// REACT_APP_API_KEY="AIzaSyCXvONMFsResbCKexp36LPf9Inmxc6Pazc"
-// REACT_APP_AUTH_DOMAIN="record-voice-ac19c.firebaseapp.com"
-// REACT_APP_PROJECT_ID="record-voice-ac19c"
-// REACT_APP_STORAGE_BUCKET="record-voice-ac19c.appspot.com"
-// REACT_APP_MESSAGING_SENDER_ID="834034852145"
-// REACT_APP_APP_ID="1:834034852145:web:cd5ce84d9a347004a11010"

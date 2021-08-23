@@ -1,0 +1,44 @@
+.records-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.records-list::-webkit-scrollbar-track {
+  background: #dddddd;
+}
+
+.records-list::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+
+.records-list {
+  width: 40%;
+  overflow: hidden;
+  overflow-y: auto;
+  /* border-right: 1px solid #dddddd; */
+  border-left: 1px solid #dddddd;
+}
+
+.accordian-title {
+  padding: 10px 15px;
+  font-weight: bold;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  cursor: pointer;
+}
+
+.accordian-title span {
+  padding-left: 10px;
+}
+
+.accordian-content {
+  display: none;
+  padding: 10px 15px;
+}
+
+.records-list li.active .fa-chevron-right {
+  transform: rotate(90deg);
+}
+
+.records-list li.active .accordian-content {
+  display: block;
+}

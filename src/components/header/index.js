@@ -1,17 +1,17 @@
 import React from 'react';
+import GoogleAuth from './../googleSignin/index';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMicrophoneAlt } from "@fortawesome/free-solid-svg-icons";
 
-import Login from './googlesignbtn';
+import './index.css';
 
-export default function Header() {
+export default function Header () {
   return (
     <header>
       <div className="container">
-        <div className="header-wrapper">
-          <h1 className="logo"><FontAwesomeIcon icon={faMicrophoneAlt} /> <span>Voice</span></h1>
-          <Login />
-        </div>
+        <h1 className="brand-logo"><FontAwesomeIcon icon={faMicrophoneAlt} /> <span>Voice</span></h1>
+        <GoogleAuth />
       </div>
     </header>
   )
