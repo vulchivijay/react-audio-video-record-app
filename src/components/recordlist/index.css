@@ -34,12 +34,12 @@
 
 .data-loader::after {
   left: -10%;
-  /* animation: dataLoaderAfter 500ms infinite; */
+  animation: dataLoaderAfter 500ms infinite;
 }
 
 .data-loader::before {
   left: -20%;
-  /* animation: dataLoaderBefore 500ms 200ms infinite; */
+  animation: dataLoaderBefore 500ms 200ms infinite;
 }
 
 .data-loader.data-loader_audio {

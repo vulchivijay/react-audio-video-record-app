@@ -7,6 +7,6 @@ export function RecordStartStop(payload) {
 export function Recorder(payload) {
   return {
     type: "ISRECORD",
-    payload,
+    isRecord: payload,
   }
 }

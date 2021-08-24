@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
+import store from './../../redux/store';
 import { RecordStart, RecordStop } from '../../controllers/recordaudio';
 import { UserContext } from './../../providers/index';
-// import Waves from './waves';
+import Waves from './waves';
 import TimeSpinner from './../timespinner/index';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,13 +17,13 @@ export default function Recorder () {
   return (
     <div className="recorder">
       <div className="recorder-animation">
-        {/* <Waves /> */}
+        <Waves />
       </div>
       <div className="recorder-timer">
         <TimeSpinner />
       </div>
       {
-        false ? (
+        store.getState().isRecord ? (
           <div className="recorder-controllers">
             <button id="cancel_record" >
               <FontAwesomeIcon icon={faTimes} size="2x" />

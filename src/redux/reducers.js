@@ -1,13 +1,14 @@
 const initialState = {
-  isRecord: false,
+  isRecord: false
 }
 
 const reducer = (state = initialState, action) => {
-  if (action.type === 'ISRECORD') {
-    state.isRecord = action.payload;
+  switch (action.type) {
+    case "ISRECORD":
+      return {...state, isRecord : action.isRecord }
+    default:
+      return state;
   }
-
-  return state;
 }
 
 export default reducer;
