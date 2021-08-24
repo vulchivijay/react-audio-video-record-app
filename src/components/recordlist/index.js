@@ -36,7 +36,6 @@ export default function RecordList () {
                 <div>
                   <div className="data-loader data-loader_audio"></div>
                   <div className="data-loader data-loader_audio"></div>
-                  <div className="data-loader data-loader_audio"></div>
                 </div>
               )
             }
@@ -59,7 +58,6 @@ export default function RecordList () {
                 <div>
                   <div className="data-loader data-loader_audio"></div>
                   <div className="data-loader data-loader_audio"></div>
-                  <div className="data-loader data-loader_audio"></div>
                 </div>
               )
             }
@@ -80,7 +78,6 @@ export default function RecordList () {
               :
               (
                 <div>
-                  <div className="data-loader data-loader_audio"></div>
                   <div className="data-loader data-loader_audio"></div>
                   <div className="data-loader data-loader_audio"></div>
                 </div>
