@@ -1,9 +1,9 @@
 import { RecordStartStop } from './../redux/actions';
 
-let audioChunks = [];
 let rec;
 
 export const RecordStart = () => {
+  let audioChunks = [];
   navigator.mediaDevices.getUserMedia( { audio : true } )
     .then(stream => {
       RecordStartStop(true);
