@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { RecordStart, RecordStop } from '../../controllers/recordaudio';
 import { UserContext } from './../../providers/index';
-import Waves from './waves';
+// import Waves from './waves';
+import TimeSpinner from './../timespinner/index';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMicrophone, faTimes, faSave, faFileUpload } from "@fortawesome/free-solid-svg-icons";
@@ -11,30 +12,25 @@ import './waves.css';
 
 export default function Recorder () {
   const user = useContext(UserContext);
-  const [recordInitialize, setRecordInitialize] = useState(false);
 
   return (
     <div className="recorder">
       <div className="recorder-animation">
-        <Waves />
+        {/* <Waves /> */}
       </div>
       <div className="recorder-timer">
-        <p className="time-spinner">
-          <span>00</span>
-          <span className="dots">:</span>
-          <span>00</span>
-        </p>
+        <TimeSpinner />
       </div>
       {
-        recordInitialize ? (
+        false ? (
           <div className="recorder-controllers">
-            <button id="cancel_record" className="cnlBtn" title="Cancel recording">
+            <button id="cancel_record" >
               <FontAwesomeIcon icon={faTimes} size="2x" />
             </button>
-            <button id="stop_record" className="saveBtn" title="Save recording" onClick={RecordStop}>
+            <button id="stop_record" onClick={RecordStop}>
               <FontAwesomeIcon icon={faSave} size="2x" />
             </button>
-            <button id="upload_record" className="uploadBtn" title="Upload audio">
+            <button id="upload_record" >
               <FontAwesomeIcon icon={faFileUpload} size="2x" />
             </button>
           </div>
@@ -42,7 +38,7 @@ export default function Recorder () {
         :
         (
           <div className="recorder-controllers">
-            <button id="start_record" className="strBtn" title="Start recording" onClick={RecordStart}>
+            <button id="start_record" onClick={RecordStart}>
               <FontAwesomeIcon icon={faMicrophone} size="2x" />
             </button>
           </div>

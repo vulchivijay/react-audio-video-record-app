@@ -1,3 +1,5 @@
+import { connect } from 'react-redux'
+
 import Header from './components/header/index';
 import RecordVoiceView from './components/recordvoice/index';
 import Footer from './components/footer/index';
@@ -14,4 +16,17 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return { isRecord: state.isRecord }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatch
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)

@@ -1,11 +1,12 @@
+import { RecordStartStop } from './../redux/actions';
+
 let audioChunks = [];
 let rec;
-export const StartRecording = 0;
-export const RecordInitializer = false;
 
 export const RecordStart = () => {
   navigator.mediaDevices.getUserMedia( { audio : true } )
     .then(stream => {
+      RecordStartStop(true);
       rec = new MediaRecorder(stream);
       let recordedAudio = document.querySelector('#recordedAudio');
       // let audioDownload;
@@ -24,5 +25,6 @@ export const RecordStart = () => {
 }
 
 export const RecordStop = () => {
+  RecordStartStop(false);
   rec.stop();
 }

@@ -1,8 +1,7 @@
-import React from 'react';
 import Recoder from './../recorder/index';
 import RecordList from './../recordlist/index';
 
-import './index.css'
+import './index.css';
 
 export default function RecordVoiceView () {
   return (
