@@ -1,19 +1,20 @@
 import React, { useContext } from 'react';
-import store from './../../redux/store';
-import { RecordStart, RecordStop } from '../../controllers/recordaudio';
+import { RecordStart, RecordStop, RecordCancel, RecordUpload } from '../../controllers/recordaudio';
 import { UserContext } from './../../providers/index';
-import Waves from './waves';
 import TimeSpinner from './../timespinner/index';
+import store from './../../redux/store';
+import Waves from './waves';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMicrophone, faTimes, faSave, faFileUpload } from "@fortawesome/free-solid-svg-icons";
+import { faMicrophone, faVideo ,faFileUpload, faStopCircle, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 import './index.css';
 import './waves.css';
 
 export default function Recorder () {
   const user = useContext(UserContext);
-
+  const { isRecord, isRecordStopped } = store.getState();
+  console.log(isRecord, isRecordStopped);
   return (
     <div className="recorder">
       <div className="recorder-animation">
@@ -23,22 +24,29 @@ export default function Recorder () {
         <TimeSpinner />
       </div>
       {
-        store.getState().isRecord ? (
+        isRecord || isRecordStopped ? (
           <div className="recorder-controllers">
-            <button id="cancel_record" >
-              <FontAwesomeIcon icon={faTimes} size="2x" />
-            </button>
-            <button id="stop_record" onClick={RecordStop}>
-              <FontAwesomeIcon icon={faSave} size="2x" />
-            </button>
-            <button id="upload_record" >
-              <FontAwesomeIcon icon={faFileUpload} size="2x" />
-            </button>
+            {
+              isRecordStopped ?
+              (<React.Fragment><button id="cancel_record" onClick={RecordCancel}>
+                  <FontAwesomeIcon icon={faTrashAlt} size="2x" />
+                </button>
+                <button id="upload_record" onClick={RecordUpload}>
+                  <FontAwesomeIcon icon={faFileUpload} size="2x" />
+                </button></React.Fragment>)
+              :
+              (<button id="stop_record" onClick={RecordStop}>
+                  <FontAwesomeIcon icon={faStopCircle} size="2x" />
+                </button>)
+            }
           </div>
         )
         :
         (
           <div className="recorder-controllers">
+            <button id="start_video" className="disable">
+              <FontAwesomeIcon icon={faVideo} size="2x" />
+            </button>
             <button id="start_record" onClick={RecordStart}>
               <FontAwesomeIcon icon={faMicrophone} size="2x" />
             </button>
@@ -51,7 +59,7 @@ export default function Recorder () {
         </div>
       )}
       <div className="recorded-audio">
-			  <audio id="recordedAudio" preload="true"></audio>
+			  <span id="recordPreview"></span><audio id="recordedAudio" preload="true"></audio>
       </div>
     </div>
   );
