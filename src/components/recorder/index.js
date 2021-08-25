@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { RecordStart, RecordStop, RecordCancel, RecordUpload } from '../../controllers/recordaudio';
+import { RecordStart, RecordStop, RecordUpload } from '../../controllers/recordaudio';
 import { UserContext } from './../../providers/index';
 import TimeSpinner from './../timespinner/index';
 import store from './../../redux/store';
 import Waves from './waves';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMicrophone, faVideo ,faFileUpload, faStopCircle, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faMicrophone, faVideo ,faFileUpload, faStopCircle } from "@fortawesome/free-solid-svg-icons";
 
 import './index.css';
 import './waves.css';
@@ -24,21 +24,11 @@ export default function Recorder () {
         <TimeSpinner />
       </div>
       {
-        isRecord || isRecordStopped ? (
+        isRecord ? (
           <div className="recorder-controllers">
-            {
-              isRecordStopped ?
-              (<React.Fragment><button id="cancel_record" onClick={RecordCancel}>
-                  <FontAwesomeIcon icon={faTrashAlt} size="2x" />
-                </button>
-                <button id="upload_record" onClick={RecordUpload}>
-                  <FontAwesomeIcon icon={faFileUpload} size="2x" />
-                </button></React.Fragment>)
-              :
-              (<button id="stop_record" onClick={RecordStop}>
-                  <FontAwesomeIcon icon={faStopCircle} size="2x" />
-                </button>)
-            }
+            <button id="stop_record" onClick={RecordStop}>
+              <FontAwesomeIcon icon={faStopCircle} size="2x" />
+            </button>
           </div>
         )
         :
@@ -50,6 +40,14 @@ export default function Recorder () {
             <button id="start_record" onClick={RecordStart}>
               <FontAwesomeIcon icon={faMicrophone} size="2x" />
             </button>
+            {
+              isRecordStopped && user ?
+              (<button id="upload_record" onClick={RecordUpload}>
+                  <FontAwesomeIcon icon={faFileUpload} size="2x" />
+                </button>)
+              :
+              ''
+            }
           </div>
         )
       }
@@ -64,3 +62,5 @@ export default function Recorder () {
     </div>
   );
 }
+
+

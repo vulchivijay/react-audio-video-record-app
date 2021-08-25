@@ -7,7 +7,6 @@ export const RecordStart = () => {
   navigator.mediaDevices.getUserMedia( { audio : true } )
     .then(stream => {
       RecordStartStop(true);
-      RecordingStopped(false);
       ClockStartStop(true);
       rec = new MediaRecorder(stream);
       let recordedAudio = document.querySelector('#recordedAudio');
@@ -28,14 +27,8 @@ export const RecordStart = () => {
 }
 
 export const RecordStop = () => {
-  RecordStartStop(false);
+  RecordStartStop(false)
   RecordingStopped(true);
-  ClockStartStop(false);
-  rec.stop();
-}
-
-export const RecordCancel = () => {
-  RecordStartStop(false);
   ClockStartStop(false);
   rec.stop();
 }
