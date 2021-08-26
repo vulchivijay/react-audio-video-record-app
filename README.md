@@ -5,7 +5,7 @@ Learning Browser MediaStream:
 Record your daily activities from web browser. No paper work. Store your recorded audio's in firebase storage. Google Sign in is required.
 
 ## Technologies
-1. React (Frontend).
+1. React, React-Redux, Redux (Frontend).
 2. Firebase (Backend).
 3. Browser default MediaStream API's.
 

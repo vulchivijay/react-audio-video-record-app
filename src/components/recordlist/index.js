@@ -57,11 +57,33 @@ export default function RecordList () {
         >
           <div className="accordian-title">
             <FontAwesomeIcon icon={faChevronRight} />
-            {user ? (<span>Saved records:</span>) : (<span className="data-loader"></span>)} 
+            {user ? (<span>Audio Files:</span>) : (<span className="data-loader"></span>)} 
           </div>
           <div className="accordian-content">
             {user ?
               (<ListAudioFiles files={audioFiles}/>)
+              :
+              (
+                <div>
+                  <div className="data-loader data-loader_audio"></div>
+                  <div className="data-loader data-loader_audio"></div>
+                </div>
+              )
+            }
+          </div>
+        </li>
+        <li
+          key={1}
+          onClick={() => accordianToggle(1)}
+          className={1 === active ? 'active' : ''}
+        >
+          <div className="accordian-title">
+            <FontAwesomeIcon icon={faChevronRight} />
+            {user ? (<span>Video Files:</span>) : (<span className="data-loader"></span>)} 
+          </div>
+          <div className="accordian-content">
+            {user ?
+              (<p>Not available! In progress feature.</p>)
               :
               (
                 <div>
