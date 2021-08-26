@@ -6,8 +6,8 @@ import './index.css';
 export default function RecordVoiceView () {
   return (
     <div className="container recordvoice-wrapper">
-      <RecordList />
       <Recoder />
+      <RecordList />
     </div>
   );
 }

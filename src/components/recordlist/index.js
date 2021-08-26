@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import firebase from 'firebase';
 import { UserContext } from './../../providers/index';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,9 +10,39 @@ import './index.css';
 export default function RecordList () {
   const user = useContext(UserContext);
   const [active, setActive] = useState(-1);
+  const [audioFiles, setAudioFiles] = useState([]);
   
+  useEffect(() => {
+    if (user) {
+      const userFolder = user.email.replace("@gmail.com", "");
+      let storageRef = firebase.storage().ref();
+      let temp = [];
+      storageRef
+      .child(`voices/${userFolder}/`)
+      .listAll()
+      .then(function(res) {
+        res.items.forEach( files => {
+          files.getDownloadURL().then(url => {
+            const item = {
+              source: url,
+              format: files.name,
+              createdAt: files.name.split('.')[0],
+              controls: true,
+            };
+            temp.push(item);
+          });
+        });
+        setTimeout(() => {
+          setAudioFiles(temp);
+        }, 2000);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    }
+  }, [user]);
+
   const accordianToggle = (index) => {
-    console.log("index", index);
     if (index === active) setActive(-1);
     else setActive(index);
   }
@@ -26,55 +57,11 @@ export default function RecordList () {
         >
           <div className="accordian-title">
             <FontAwesomeIcon icon={faChevronRight} />
-            {user ? (<span>Today</span>) : (<span className="data-loader"></span>)} 
+            {user ? (<span>Saved records:</span>) : (<span className="data-loader"></span>)} 
           </div>
           <div className="accordian-content">
             {user ?
-              (<div>Recorded videos has to display here for sign in users.</div>)
-              :
-              (
-                <div>
-                  <div className="data-loader data-loader_audio"></div>
-                  <div className="data-loader data-loader_audio"></div>
-                </div>
-              )
-            }
-          </div>
-        </li>
-        <li
-          key={1}
-          onClick={() => accordianToggle(1)}
-          className={1 === active ? 'active' : ''}
-        >
-          <div className="accordian-title">
-            <FontAwesomeIcon icon={faChevronRight} />
-            {user ? (<span>Today</span>) : (<span className="data-loader"></span>)} 
-          </div>
-          <div className="accordian-content">
-            {user ?
-              (<div>Recorded videos has to display here for sign in users.</div>)
-              :
-              (
-                <div>
-                  <div className="data-loader data-loader_audio"></div>
-                  <div className="data-loader data-loader_audio"></div>
-                </div>
-              )
-            }
-          </div>
-        </li>
-        <li
-          key={2}
-          onClick={() => accordianToggle(2)}
-          className={2 === active ? 'active' : ''}
-        >
-          <div className="accordian-title">
-            <FontAwesomeIcon icon={faChevronRight} />
-            {user ? (<span>Today</span>) : (<span className="data-loader"></span>)} 
-          </div>
-          <div className="accordian-content">
-            {user ?
-              (<div>Recorded videos has to display here for sign in users.</div>)
+              (<ListAudioFiles files={audioFiles}/>)
               :
               (
                 <div>
@@ -89,3 +76,15 @@ export default function RecordList () {
     </div>
   );
 }
+
+const ListAudioFiles = ({ files }) => {
+  return files.map((item, index) => {
+    return (<div className="audioFile-wrapper" key={index}>
+      <audio preload="true" src={item.source} controls={item.controls} />
+      <span>{`${new Date(parseInt(item.createdAt)).toLocaleString()}`}</span>
+    </div>)
+  });
+}
+
+// 
+// {`${new Date(item.createdAt).toLocaleDateString()}`}

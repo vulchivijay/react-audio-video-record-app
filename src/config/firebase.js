@@ -18,7 +18,8 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
-const googleProvider = new firebase.auth.GoogleAuthProvider()
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+
 export const signInWithGoogle = () => {
   auth.signInWithPopup(googleProvider).then((res) => {
     console.log(res.user);
@@ -64,3 +65,77 @@ export const uploadFile = (blob) => {
     }
   });
 }
+
+// Load user based audio files
+export const getAudioFiles = () => {
+  auth.onAuthStateChanged(async (user) => {
+  });
+}
+
+// useEffect(() => {
+//   if (user) {
+//     const userFolder = user.email.replace("@gmail.com", "");
+//     console.log("user: ", userFolder);
+//     let storageRef = firebase.storage().ref();
+//     let temp = [];
+//     storageRef
+//       .child(`voices/${userFolder}/`)
+//       .listAll()
+//       .then(function(res) {
+//         res.items.forEach( (files, index) => {
+//           files.getDownloadURL().then(url => {
+//             temp.push(url);
+//           });
+//         });
+//         // setAudioFiles([...temp]);
+//         console.log("temp: ", temp);
+//       })
+//       .catch(function(error) {
+//         console.log(error);
+//       });
+//     }
+// }, []);
+
+
+// Get audio files based on signed in user.
+// export const getAudios = () => {
+//   auth.onAuthStateChanged(async (user) => {
+//     if (user) {
+//       //1.
+//       let storageRef = firebase.storage().ref();
+//       //2.
+//       storageRef
+//         .listAll()
+//         .then(function(res) {
+//           console.log('res: ', res);
+//           //3.
+//           res.items.forEach(imageRef => {
+//             imageRef.getDownloadURL().then(url => {
+//               //4.
+//               setImages(allImages => [...allImages, url]);
+//             });
+//           });
+//         })
+//         .catch(function(error) {
+//           console.log(error);
+//         });
+//     }
+//   });
+// };
+
+// Delete audio files based on signed in user.
+// const deleteFromFirebase = url => {
+//   //1.
+//   let pictureRef = storage.refFromURL(url);
+//   //2.
+//   pictureRef
+//     .delete()
+//     .then(() => {
+//       //3.
+//       setImages(allImages.filter(image => image !== url));
+//       alert('Picture is deleted successfully!');
+//     })
+//     .catch(err => {
+//       console.log(err);
+//     });
+// };

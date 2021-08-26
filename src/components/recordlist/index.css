@@ -70,7 +70,34 @@
 
 .accordian-content {
   display: none;
-  padding: 10px 15px;
+  padding: 15px 10px;
+}
+
+.audioFile-wrapper {
+  position: relative;
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.audioFile-wrapper audio {
+  position: relative;
+  left: 2%;
+  z-index: 0;
+  width: 96%;
+  height: 34px;
+  border-radius: 17px;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+              0px 4px 5px 0px rgb(0 0 0 / 14%),
+              0px 1px 10px 0px rgb(0 0 0 / 12%)
+}
+
+.audioFile-wrapper span {
+  position: absolute;
+  z-index: 1;
+  top: 32px;
+  left: 20px;
+  padding: 4px 10px;
+  font-size: 10px;
 }
 
 .records-list li.active .fa-chevron-right {
@@ -78,7 +105,8 @@
 }
 
 .records-list li.active .accordian-content {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 @keyframes dataLoaderAfter {

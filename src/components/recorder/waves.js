@@ -1,3 +1,5 @@
+import './waves.css';
+
 export default function Waves () {
   return (
     <div id='bars'>

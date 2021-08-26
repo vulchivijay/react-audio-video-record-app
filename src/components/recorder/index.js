@@ -1,5 +1,7 @@
+import React, { useContext } from 'react';
 import { RecordStart, RecordStop, RecordUpload } from '../../controllers/recordaudio';
 import TimeSpinner from './../timespinner/index';
+import { UserContext } from './../../providers/index';
 import store from './../../redux/store';
 import Waves from './waves';
 
@@ -7,13 +9,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMicrophone, faVideo ,faFileUpload, faStopCircle } from "@fortawesome/free-solid-svg-icons";
 
 import './index.css';
-import './waves.css';
 
 export default function Recorder () {
-  // const { isRecord, isRecordStopped } = store.getState();
+  const user = useContext(UserContext);
 
-  // console.log("Test : ", isRecord, isRecordStopped);
- 
   return (
     <div className="recorder">
       <div className="recorder-animation">
@@ -49,6 +48,11 @@ export default function Recorder () {
           </div>
         )
       }
+      { user ? '' : (
+        <div className="guest-msg">
+          <p>You can check now! Try your self!!!</p>
+        </div>
+      )}
       <div className="recorded-audio">
 			  <span id="recordPreview"></span><audio id="recordedAudio" preload="true"></audio>
       </div>
