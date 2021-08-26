@@ -64,10 +64,10 @@ export default function RecordList () {
               (<ListAudioFiles files={audioFiles}/>)
               :
               (
-                <div>
+                <React.Fragment>
                   <div className="data-loader data-loader_audio"></div>
                   <div className="data-loader data-loader_audio"></div>
-                </div>
+                </React.Fragment>
               )
             }
           </div>
@@ -86,10 +86,10 @@ export default function RecordList () {
               (<p>Not available! In progress feature.</p>)
               :
               (
-                <div>
+                <React.Fragment>
                   <div className="data-loader data-loader_audio"></div>
                   <div className="data-loader data-loader_audio"></div>
-                </div>
+                </React.Fragment>
               )
             }
           </div>
@@ -107,6 +107,3 @@ const ListAudioFiles = ({ files }) => {
     </div>)
   });
 }
-
-// 
-// {`${new Date(item.createdAt).toLocaleDateString()}`}

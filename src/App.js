@@ -17,7 +17,7 @@ function App() {
 }
 
 const mapStateToProps = state => {
-  return { isRecord: state.isRecord }
+  return {...state}
 }
 
 const mapDispatchToProps = dispatch => {

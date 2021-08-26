@@ -14,6 +14,9 @@ export const RecordStart = () => {
       rec = new MediaRecorder(stream);
       let recordedAudio = document.querySelector('#recordedAudio');
       let recordPreviewLabel = document.querySelector('#recordPreview');
+      recordedAudio.removeAttribute('src');
+      recordedAudio.removeAttribute('controls');
+      recordPreviewLabel.innerHTML = "";
       rec.ondataavailable = e => {
         audioChunks.push(e.data);
         if (rec.state === "inactive") {
@@ -22,7 +25,7 @@ export const RecordStart = () => {
           recordedAudio.src = URL.createObjectURL(blob);
           recordedAudio.controls = true;
           recordedAudio.autoplay = false;
-          recordPreviewLabel.innerText = 'Preview : ';
+          recordPreviewLabel.innerText = 'Preview';
         }
       }
       rec.start();

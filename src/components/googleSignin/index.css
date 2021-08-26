@@ -12,15 +12,11 @@
   margin: 5px 0;
   padding: 0 10px;
   border: none;
-  background: #ea4335;
+  background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
   border-radius: 5px;
   cursor: pointer;
   color: #ffffff;
   align-items: center;
-}
-
-.google-auth button:hover {
-  background: #ff1804;
 }
 
 .google-auth span {
