@@ -19,3 +19,7 @@ Record your daily activities from web browser. No paper work. Store your recorde
 4. Firebase auth implemented for user sign in and sign out the application.
 5. When signed in user clicks audio save button, his/her audio record file will be stored in Firebase storage.
 6. Local/Firebase storage audio files listed in right side panel. For signed in users audio files filtered based on stored date and time.
+
+### Signed user page design
+
+![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/userpage.jpg)
