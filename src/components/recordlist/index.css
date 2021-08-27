@@ -1,134 +1,55 @@
-.records-list::-webkit-scrollbar {
+.records-files::-webkit-scrollbar {
   width: 5px;
 }
 
-.records-list::-webkit-scrollbar-track {
+.records-files::-webkit-scrollbar-track {
   background: #dddddd;
 }
 
-.records-list::-webkit-scrollbar-thumb {
+.records-files::-webkit-scrollbar-thumb {
   background: #000000;
-}
-
-.data-loader {
-  overflow: hidden;
-  position: relative;
-  z-index: 0;
-  top: 2px;
-  width: 35%;
-  height: 16px;
-  background: #f1f1f1;
-}
-
-.data-loader::before,
-.data-loader::after {
-  content: '';
-  position: absolute;
-  z-index: 1;
-  top: -25px;
-  width: 20px;
-  background: #f8f9fa;
-  bottom: -15px;
-  transform: rotate(45deg);
-}
-
-.data-loader::after {
-  left: -10%;
-  animation: dataLoaderAfter 500ms infinite;
-}
-
-.data-loader::before {
-  left: -20%;
-  animation: dataLoaderBefore 500ms 200ms infinite;
-}
-
-.data-loader.data-loader_audio {
-  width: 100%;
-  height: 34px;
-  margin-bottom: 10px;
 }
 
 .records-list {
   width: 40%;
+  padding: 20px;
+}
+
+.records-files {
+  height: calc(100% - 74px);
+  margin-top: 20px;
   overflow: hidden;
   overflow-y: auto;
-  border-right: 1px solid #dddddd;
-  border-left: 1px solid #dddddd;
 }
 
-.accordian-title {
-  padding: 10px 15px;
-  font-weight: bold;
-  border-top: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd;
-  background: linear-gradient(45deg, rgb(243 243 243) 30%, rgb(255 255 255) 90%);
-  cursor: pointer;
+.audiofile-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.accordian-title span {
-  display: inline-block;
-  margin-left: 10px;
-}
-
-.accordian-content {
-  display: none;
-  padding: 15px 10px;
-}
-
-.audioFile-wrapper {
+.audioFile {
   position: relative;
   z-index: 0;
   width: 50%;
   margin-bottom: 25px;
 }
 
-.audioFile-wrapper audio {
+.audioFile audio {
   position: relative;
   z-index: 2;
   left: 2%;
   width: 96%;
   height: 34px;
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
   border-radius: 17px;
-  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
-              0px 4px 5px 0px rgb(0 0 0 / 14%),
-              0px 1px 10px 0px rgb(0 0 0 / 12%)
 }
 
-.audioFile-wrapper span {
+.audioFile span {
   position: absolute;
   z-index: 1;
   top: 32px;
   left: 20px;
   padding: 4px 10px;
   font-size: 10px;
-  border-radius: 0 0 5px 5px;
-  border: 1px solid #dddddd;
-  background-color: #f9f9f9;
-}
-
-.records-list li.active .fa-chevron-right {
-  transform: rotate(90deg);
-}
-
-.records-list li.active .accordian-content {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-@keyframes dataLoaderAfter {
-  from {
-    left: -10%;
-  }
-  to {
-    left: 110%;
-  }
-}
-
-@keyframes dataLoaderBefore {
-  from {
-    left: -20%;
-  }
-  to {
-    left: 120%;
-  }
 }

@@ -2,14 +2,11 @@ import React, { useState, useContext, useEffect } from 'react';
 import firebase from 'firebase';
 import { UserContext } from './../../providers/index';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-
 import './index.css';
+import './tabs.css';
 
 export default function RecordList () {
   const user = useContext(UserContext);
-  const [active, setActive] = useState(-1);
   const [audioFiles, setAudioFiles] = useState([]);
   
   useEffect(() => {
@@ -42,66 +39,35 @@ export default function RecordList () {
     }
   }, [user]);
 
-  const accordianToggle = (index) => {
-    if (index === active) setActive(-1);
-    else setActive(index);
-  }
-
   return (
     <div className="records-list">
-      <ul>
-        <li
-          key={0}
-          onClick={() => accordianToggle(0)}
-          className={0 === active ? 'active' : ''}
-        >
-          <div className="accordian-title">
-            <FontAwesomeIcon icon={faChevronRight} />
-            {user ? (<span>Audio Files:</span>) : (<span className="data-loader"></span>)} 
-          </div>
-          <div className="accordian-content">
-            {user ?
-              (<ListAudioFiles files={audioFiles}/>)
-              :
-              (
-                <React.Fragment>
-                  <div className="data-loader data-loader_audio"></div>
-                  <div className="data-loader data-loader_audio"></div>
-                </React.Fragment>
-              )
-            }
-          </div>
-        </li>
-        <li
-          key={1}
-          onClick={() => accordianToggle(1)}
-          className={1 === active ? 'active' : ''}
-        >
-          <div className="accordian-title">
-            <FontAwesomeIcon icon={faChevronRight} />
-            {user ? (<span>Video Files:</span>) : (<span className="data-loader"></span>)} 
-          </div>
-          <div className="accordian-content">
-            {user ?
-              (<p>Not available! In progress feature.</p>)
-              :
-              (
-                <React.Fragment>
-                  <div className="data-loader data-loader_audio"></div>
-                  <div className="data-loader data-loader_audio"></div>
-                </React.Fragment>
-              )
-            }
-          </div>
-        </li>
-      </ul>
+      <div className="segmented-control">
+        <input type="radio" name="radio2" value="3" id="tab-1" />
+        <label htmlFor="tab-1" className="segmented-control__1" >
+          <p>Audio files</p>
+        </label>
+        <input type="radio" name="radio2" value="4" id="tab-2" />
+        <label htmlFor="tab-2" className="segmented-control__2">
+          <p>Video files</p>
+        </label>
+        <div className="segmented-control__color"></div>
+      </div>
+      <div className="records-files">
+        <div className="audiofile-wrapper">
+          {user ?
+            (<ListAudioFiles files={audioFiles}/>)
+            :
+            (<p>Sign-in is required to store your records!</p>)
+          }
+        </div>
+      </div>
     </div>
   );
 }
 
 const ListAudioFiles = ({ files }) => {
   return files.map((item, index) => {
-    return (<div className="audioFile-wrapper" key={index}>
+    return (<div className="audioFile" key={index}>
       <audio preload="true" src={item.source} controls={item.controls} />
       <span>{`${new Date(parseInt(item.createdAt)).toLocaleString()}`}</span>
     </div>)

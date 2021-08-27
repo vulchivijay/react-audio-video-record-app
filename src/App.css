@@ -1,3 +1,23 @@
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+  --success: #43a047;
+  --warning: #fb8c00;
+  --error: #e53935;
+  --video : #00acc1;
+  --purple: #8e24aa;
+}
+
+body {
+  background-color: var(--greyLight-1);
+}
+
 button {
   cursor: pointer;
 }
@@ -19,4 +39,8 @@ li {
 .disable {
   opacity: 0.4;
   pointer-events: none;
+}
+
+.hide {
+  display: none;
 }

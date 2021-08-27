@@ -26,23 +26,23 @@ export default function Recorder () {
         isRecord ? (
           <div className="recorder-controllers">
             <button id="stop_record" className="stop-record" onClick={RecordStop}>
-              <FontAwesomeIcon icon={faStopCircle} size="2x" color="white" />
+              <FontAwesomeIcon icon={faStopCircle} size="2x" color="#e53935" />
             </button>
           </div>
         )
         :
         (
           <div className="recorder-controllers">
-            <button id="start_video" className="start-video disable">
-              <FontAwesomeIcon icon={faVideo} size="2x" />
+            <button id="start_video" className="start-video">
+              <FontAwesomeIcon icon={faVideo} size="2x" color="#00acc1" />
             </button>
             <button id="start_record" className="start-record" onClick={RecordStart}>
-              <FontAwesomeIcon icon={faMicrophone} size="2x" color="white" />
+              <FontAwesomeIcon icon={faMicrophone} size="2x" color="#fb8c00"/>
             </button>
             {
               user && isRecordStopped && (
                 <button id="upload_record" className="file-upload" onClick={RecordUpload}>
-                  <FontAwesomeIcon icon={faFileUpload} size="2x" color="white" />
+                  <FontAwesomeIcon icon={faFileUpload} size="2x" color="#43a047" />
                 </button>
               )
             }

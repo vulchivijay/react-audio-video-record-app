@@ -9,7 +9,7 @@ export default function GoogleAuth() {
 
   return (
       <div className="google-auth">
-        { user ? <span>Sign in as: <b>{ user.displayName }</b></span> : <b>To store your records, please</b> }
+        { user ? <span>Sign in as: <b>{ user.displayName }</b></span> : <p>To store your records, please</p> }
         { user ?
           <button className="logout-button" onClick={logOut}>
             <b className="google-logo">G</b>
