@@ -25,9 +25,11 @@ Record your daily activities from web browser. No paper work. Store your recorde
 
 ![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/homepage.jpg)
 
+![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/homepage-1.jpg)
+
 
 ### Signed user page design
 
 ![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/userpage.jpg)
 
-![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/userpage-1.jpg)
+![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/userpage-2.jpg)
