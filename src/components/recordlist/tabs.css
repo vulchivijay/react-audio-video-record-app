@@ -2,7 +2,7 @@
 .segmented-control {
   position: relative;
   width: 100%;
-  height: 54px;
+  height: 34px;
   display: flex;
   box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
   border-radius: 16px;
@@ -25,7 +25,7 @@
 .segmented-control__1, .segmented-control__2 {
   width: 50%;
   height: 3rem;
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,7 @@
 
 .segmented-control__color {
   position: absolute;
-  height: 2.8rem;
+  height: 1.8rem;
   width: 50%;
   margin-left: 0.3rem;
   border-radius: 0.8rem;
@@ -56,4 +56,25 @@
 #tab-2:checked ~ .segmented-control__color {
   transform: translateX(96%);
   transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+@media only screen and (min-width: 680px) {
+  .segmented-control {
+    height: 54px;
+  }
+  .segmented-control__1, .segmented-control__2 {
+    width: 50%;
+    height: 3rem;
+    font-size: 20px;
+  }
+  .segmented-control__color {
+    height: 2.8rem;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .records-list {
+    width: 40%;
+  }
 }

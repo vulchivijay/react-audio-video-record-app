@@ -11,12 +11,12 @@
 }
 
 .records-list {
-  width: 40%;
-  padding: 20px;
+  height: 56%;
+  width: 100%;
 }
 
 .records-files {
-  height: calc(100% - 74px);
+  height: calc(100% - 54px);
   margin-top: 20px;
   overflow: hidden;
   overflow-y: auto;
@@ -31,8 +31,8 @@
 .audioFile {
   position: relative;
   z-index: 0;
-  width: 50%;
-  margin-bottom: 25px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .audioFile audio {
@@ -40,16 +40,44 @@
   z-index: 2;
   left: 2%;
   width: 96%;
-  height: 34px;
-  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+  height: 44px;
   border-radius: 17px;
 }
 
 .audioFile span {
   position: absolute;
   z-index: 1;
-  top: 32px;
+  top: 42px;
   left: 20px;
   padding: 4px 10px;
   font-size: 10px;
+}
+
+.audiofile-wrapper p {
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 680px) {
+  .records-list {
+    height: 100%;
+    width: 50%;
+    padding: 20px;
+  }
+
+  .audiofile-wrapper p {
+    font-size: 16px;
+  }
+
+  .audioFile {
+    width: 50%;
+  }
+  .records-files {
+    height: calc(100% - 74px);
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .records-list {
+    width: 40%;
+  }
 }

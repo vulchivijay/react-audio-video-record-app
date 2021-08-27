@@ -2,6 +2,17 @@
   "name": "recordvoice",
   "version": "0.1.0",
   "private": true,
+  "author": "Vulchi Vijaya Kumar",
+  "keywords": [
+    "record audio",
+    "record vidoe",
+    "mediastreams",
+    "html audio",
+    "html vidoe",
+    "html media streams",
+    "browser media streams",
+    "vulchi"
+  ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",

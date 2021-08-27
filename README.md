@@ -21,15 +21,21 @@ Record your daily activities from web browser. No paper work. Store your recorde
 6. Local/Firebase storage audio files listed in right side panel. For signed in users audio files filtered based on stored date and time.
 
 
-### Default home page design
+### Default home page designs
 
 ![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/homepage.jpg)
 
 ![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/homepage-1.jpg)
 
 
-### Signed user page design
+### Signed user page designs
 
 ![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/userpage.jpg)
 
 ![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/userpage-2.jpg)
+
+### Mobile page designs
+
+![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/mobile.jpg)
+
+![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/mobile-2.jpg)

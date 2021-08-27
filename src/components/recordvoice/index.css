@@ -1,4 +1,9 @@
 .recordvoice-wrapper {
-  display: flex;
   height: calc(100vh - 99px);
+}
+
+@media only screen and (min-width: 680px) {
+  .recordvoice-wrapper {
+    display: flex;
+  }
 }

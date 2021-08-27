@@ -1,11 +1,7 @@
 .recorder {
-  display: flex;
-  width: 60%;
-  padding: 15px;
   overflow: hidden;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  height: 44%;
+  text-align: center;
 }
 
 .recorder-controllers button {
@@ -24,22 +20,25 @@
 }
 
 .recorder-animation {
-  position: relative;
-  height: 50px;
+  display: none;
 }
 
 .recorder-timer {
   height: 80px;
-  margin-bottom: 35px;
+  margin-bottom: 5px;
 }
 
 .recorded-audio {
   position: relative;
-  height: 54px;
-  margin-top: 15px;
+  height: 34px;
+}
+
+.recorded-audio audio {
+  height: 34px;
 }
 
 .recorded-audio span {
+  display: none;
   position: absolute;
   top: -15px;
   left: 50%;
@@ -50,41 +49,49 @@
 
 .recorded-audio audio {
   border-radius: 54px;
-  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
 }
 
 .guest-msg p {
   margin: 10px 0;
-  font-size: 14px;
+  font-size: 12px;
 }
 
-.time-spinner {
-  margin: 0;
-  line-height: 1;
-  font-size: 5rem;
+@media only screen and (min-width: 680px) {
+  .recorder {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .recorder-animation {
+    display: block;
+    position: relative;
+    height: 50px;
+  }
+
+  .recorder-timer {
+    margin-bottom: 35px;
+  }
+
+  .recorded-audio {
+    height: 54px;
+    margin-top: 15px;
+  }
+
+  .recorded-audio span {
+    display: block;
+  }
+
+  .guest-msg p {
+    font-size: 14px;
+  }
 }
 
-.time-spinner span {
-  display: inline-block;
-  vertical-align: middle;
+@media only screen and (min-width: 1280px) {
+  .recorder {
+    width: 60%;
+  }
 }
-
-.clock-colon {
-  padding-bottom: 14px;
-}
-
-/* .recorder-controllers .start-video {
-  background-color: #f8f9fa;
-}
-
-.recorder-controllers .start-record {
-  background-color: #ffc107;
-}
-
-.recorder-controllers .stop-record {
-  background-color: #dc3545;
-}
-
-.recorder-controllers .file-upload {
-  background-color: #0d6efd;
-} */
