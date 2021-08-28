@@ -42,7 +42,13 @@ export default function TimeSpinner() {
         });
       }, 1000);
     }
-    else clearInterval(recordingInterval);
+    else {
+      clearInterval(recordingInterval);
+      setRecorderState({
+        recordingMinutes: 0,
+        recordingSeconds: 0,
+      });
+    }
 
     return () => clearInterval(recordingInterval);
   }, [isRecording])
