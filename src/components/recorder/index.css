@@ -28,6 +28,19 @@
   margin-bottom: 5px;
 }
 
+.recorded-video  {
+  max-width: 100%;
+  height: 150px;
+  margin: 15px 0 0;
+}
+
+.recorded-video video {
+  height: 100%;
+  border-radius: 5px;
+  border: 5px solid var(--video);
+  box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+}
+
 .recorded-audio {
   position: relative;
   height: 34px;
@@ -82,16 +95,13 @@
   }
 
   .recorded-video  {
-    max-width: 100%;
     height: 400px;
-    margin-bottom: 15px;
+    margin: 0 0 15px;
   }
 
   .recorded-video video {
-    height: 100%;
     border-radius: 10px;
-    border: 15px solid var(--video);
-    box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+    border-width: 15px;
   }
 
   .recorded-audio span {
