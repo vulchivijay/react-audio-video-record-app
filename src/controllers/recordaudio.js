@@ -23,6 +23,7 @@ export const RecordStartAudio = () => {
           recordedAudio.src = URL.createObjectURL(blob);
           recordedAudio.controls = true;
           recordedAudio.autoplay = false;
+          rec = null;
         }
       }
       rec.start();
