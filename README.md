@@ -1,4 +1,4 @@
-# RecordVoice - In Progress
+# React audio video recording app - In Progress
 
 Learning Browser MediaStream (getUserMedia):
 
