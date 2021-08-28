@@ -1,17 +1,20 @@
 const initialState = {
-  isRecord: false,
+  isAudio: false,
+  isVideo: false,
+  isRecordStopoed: false,
   isClock: false,
-  isRecordStopped: false,
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ISRECORD":
-      return {...state, isRecord : action.isRecord }
+    case "ISAUDIO":
+      return {...state, isAudio : action.isAudio }
+    case "ISVIDEO":
+      return {...state, isVideo : action.isVideo }
+    case "ISRECORDSTOPPED":
+      return {...state, isRecordStopoed : action.isRecordStopoed }
     case "ISCLOCK":
       return {...state, isClock : action.isClock }
-    case "ISRECORDSTOPPED":
-      return {...state, isRecordStopped : action.isRecordStopped }
     default:
       return state;
   }

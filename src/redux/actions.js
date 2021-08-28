@@ -1,13 +1,35 @@
 import store from "./store"
 
-export function RecordStartStop(payload) {
-  return store.dispatch(Recorder(payload))
+export function RecordAudio(payload) {
+  return store.dispatch(RecordingAudio(payload))
 }
 
-export function Recorder(payload) {
+export function RecordingAudio(payload) {
   return {
-    type: "ISRECORD",
-    isRecord: payload,
+    type: "ISAUDIO",
+    isAudio: payload,
+  }
+}
+
+export function RecordVideo(payload) {
+  return store.dispatch(RecordingVideo(payload))
+}
+
+export function RecordingVideo(payload) {
+  return {
+    type: "ISVIDEO",
+    isVideo: payload,
+  }
+}
+
+export function RecordStopped(payload) {
+  return store.dispatch(RecordingStopped(payload))
+}
+
+export function RecordingStopped(payload) {
+  return {
+    type: "ISRECORDSTOPPED",
+    isRecordStopoed: payload,
   }
 }
 
@@ -19,16 +41,5 @@ export function Clock(payload) {
   return {
     type: "ISCLOCK",
     isClock: payload,
-  }
-}
-
-export function RecordingStopped(payload) {
-  return store.dispatch(RecordStopped(payload))
-}
-
-export function RecordStopped(payload) {
-  return {
-    type: "ISRECORDSTOPPED",
-    isRecordStopped: payload,
   }
 }

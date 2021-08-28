@@ -73,12 +73,23 @@
   }
 
   .recorder-timer {
-    margin-bottom: 35px;
+    margin-bottom: 20px;
   }
 
   .recorded-audio {
     height: 54px;
     margin-top: 15px;
+  }
+
+  .recorded-video {
+    overflow: hidden;
+    max-width: 100%;
+    height: 450px;
+    margin-bottom: 15px;
+  }
+
+  .recorded-video video {
+    height: 100%;
   }
 
   .recorded-audio span {

@@ -10,7 +10,7 @@ const initialTime = {
 }
 
 export default function TimeSpinner() {
-  const isRecording = store.getState().isRecord;
+  const isRecording = store.getState().isAudio;
   const [recorderState, setRecorderState] = useState(initialTime);
 
   useEffect (() => {
