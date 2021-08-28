@@ -45,13 +45,20 @@ export const uploadFile = (blob) => {
       const { email }  = user;
       const userFolder = email.replace("@gmail.com", "");
       const createdAt = Date.now();
-      const ref = firebase.storage().ref().child(`voices/${userFolder}/${createdAt}.webm`);
-    
+      let ref;
+
       // [START storage_upload_metadata]
       // Create file metadata including the content type
-      var metadata = {
-        contentType: 'audio/webm',
-      };
+      let metadata = {};
+
+      if (blob.type.indexOf('audio/webm') !== -1) {
+        ref = firebase.storage().ref().child(`voices/${userFolder}/${createdAt}.webm`);
+        metadata = { contentType: 'audio/webm' }
+      }
+      if (blob.type.indexOf('audio/mp4') !== -1) {
+        ref = firebase.storage().ref().child(`voices/${userFolder}/${createdAt}.mp4`);
+        metadata = { contentType: 'audio/mp4'}
+      }
     
       // [START storage_upload_blob]
       // 'file' comes from the Blob or File API
@@ -63,12 +70,6 @@ export const uploadFile = (blob) => {
     else {
       console.log("Sign in required to store the file!");
     }
-  });
-}
-
-// Load user based audio files
-export const getAudioFiles = () => {
-  auth.onAuthStateChanged(async (user) => {
   });
 }
 

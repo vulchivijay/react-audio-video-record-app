@@ -1,5 +1,5 @@
-/*  SEGMENTED-CONTROL */
-.segmented-control {
+/*  tabs-CONTROL */
+.tabs-control {
   position: relative;
   width: 100%;
   height: 34px;
@@ -9,20 +9,20 @@
   align-items: center;
 }
 
-.segmented-control input {
+.tabs-control input {
   display: none;
 }
 
-.segmented-control > input:checked + label {
+.tabs-control > input:checked + label {
   transition: all 0.5s ease;
   color: var(--primary);
 }
 
-.segmented-control p {
+.tabs-control p {
   margin: 0;
 }
 
-.segmented-control__1, .segmented-control__2 {
+.tabs-control__1, .tabs-control__2 {
   width: 50%;
   height: 3rem;
   font-size: 16px;
@@ -34,11 +34,11 @@
   transition: all 0.5s ease;
 }
 
-.segmented-control__1:hover, .segmented-control__2:hover, .segmented-control__3:hover {
+.tabs-control__1:hover, .tabs-control__2:hover {
   color: var(--primary);
 }
 
-.segmented-control__color {
+.tabs-control__color {
   position: absolute;
   height: 1.8rem;
   width: 50%;
@@ -48,27 +48,27 @@
   pointer-events: none;
 }
 
-#tab-1:checked ~ .segmented-control__color {
+#tab-1:checked ~ .tabs-control__color {
   transform: translateX(0%);
   transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-#tab-2:checked ~ .segmented-control__color {
+#tab-2:checked ~ .tabs-control__color {
   transform: translateX(96%);
   transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 
 @media only screen and (min-width: 680px) {
-  .segmented-control {
+  .tabs-control {
     height: 54px;
   }
-  .segmented-control__1, .segmented-control__2 {
+  .tabs-control__1, .tabs-control__2 {
     width: 50%;
     height: 3rem;
     font-size: 20px;
   }
-  .segmented-control__color {
+  .tabs-control__color {
     height: 2.8rem;
   }
 }
