@@ -1,5 +1,5 @@
 {
-  "name": "recordvoice",
+  "name": "react-audio-video-record-app",
   "version": "0.1.0",
   "private": true,
   "author": "Vulchi Vijaya Kumar",
@@ -11,7 +11,8 @@
     "html vidoe",
     "html media streams",
     "browser media streams",
-    "vulchi"
+    "vulchi",
+    "getusermedia"
   ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",

@@ -1,8 +1,8 @@
 # RecordVoice - In Progress
 
-Learning Browser MediaStream:
+Learning Browser MediaStream (getUserMedia):
 
-Record your daily activities from web browser. No paper work. Store your recorded audio's in firebase storage. Google Sign in is required.
+Record audio and video with browser features. No paper work. Store your recorded audio's in firebase storage. Google Sign in is required.
 
 ## Technologies
 1. React, React-Redux, Redux (Frontend).
@@ -13,12 +13,12 @@ Record your daily activities from web browser. No paper work. Store your recorde
 1. React FontAwesome Free for icons.
 
 ## Key points
-1. No third party libraries used for record the audio. Consumes browser default MEDIASTREAM API's.
-2. Recorded audio files cannot be stored in Firebase storage when user not signed in with google email.
-3. When user fresh the page recorded audio files will removed when user not signed in.
+1. No third party libraries used for record the audio and video. Use browser default getUserMedia browser MEDIASTREAM API's.
+2. Recorded audio/video files cannot be stored in Firebase storage when user not signed in with google email.
+3. When user fresh the page recorded audio/video files will be deleted from browser.
 4. Firebase auth implemented for user sign in and sign out the application.
-5. When signed in user clicks audio save button, his/her audio record file will be stored in Firebase storage.
-6. Local/Firebase storage audio files listed in right side panel. For signed in users audio files filtered based on stored date and time.
+5. When signed in user clicks audio/video upload button, his/her audio/video recorded file will be stored in Firebase storage.
+6. Firebase storage audio/video files listed in right side panel for signed in users.
 
 
 ### Default home page designs

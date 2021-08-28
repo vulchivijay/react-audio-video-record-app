@@ -38,7 +38,6 @@ export function RecordedAudioReview(payload) {
 }
 
 export function AudioReview(payload) {
-  console.log('test audio preview: ', payload);
   return {
     type: "ISAUDIOPREVIEW",
     isAudioReview: payload,

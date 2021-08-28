@@ -18,6 +18,9 @@ export const RecordStartAudio = () => {
       let recordedAudio = document.querySelector('#recordedAudio');
       rec.ondataavailable = e => {
         audioChunks.push(e.data);
+        stream.getTracks().forEach(function(track) {
+          track.stop();
+        });
         if (rec.state === "inactive") {
           let blob = new Blob(audioChunks, {type: 'audio/webm codecs=vp9'});
           uploadBlob = blob;
@@ -34,17 +37,19 @@ export const RecordStartAudio = () => {
 export const RecordStartVideo = () => {
   let audioChunks = [];
   uploadBlob = '';
+  
   RecordedAudioReview(false);
   RecordedVideoReview(true);
 
   navigator.getUserMedia = navigator.getUserMedia ||
                          navigator.webkitGetUserMedia ||
                          navigator.mozGetUserMedia;
+
   if (navigator.getUserMedia) {
-    navigator.getUserMedia({ audio: false, video: { width: 640, height: 480 } },
+    navigator.getUserMedia({ audio: true, video: { width: 640, height: 480 } },
         function(stream) {
-          rec = new MediaRecorder(stream);
           RecordVideo(true);
+          rec = new MediaRecorder(stream);
 
           let recordVideo = document.querySelector('#recordedVideo');
           recordVideo.srcObject = stream;
@@ -55,9 +60,17 @@ export const RecordStartVideo = () => {
 
           rec.ondataavailable = e => {
             audioChunks.push(e.data);
+            recordVideo.srcObject = null;
+            stream.getTracks().forEach(function(track) {
+              track.stop();
+            });
+            recordVideo = document.querySelector('#recordedVideo');
             if (rec.state === "inactive") {
-              let blob = new Blob(audioChunks, {type: 'audio/mp4'});
+              let blob = new Blob(audioChunks, {type: 'audio/mp4 codecs=vp9'});
               uploadBlob = blob;
+              recordVideo.src = URL.createObjectURL(blob);
+              recordVideo.controls = true;
+              recordVideo.autoplay = false;
             }
           }
           rec.start();
@@ -76,8 +89,7 @@ export const RecordStop = () => {
   RecordVideo(false);
   RecordStopped(true);
   ClockStartStop(false);
-  if (rec)
-    rec.stop();
+  rec.stop();
 }
 
 export const RecordUpload = () => {
