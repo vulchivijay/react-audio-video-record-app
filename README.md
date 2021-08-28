@@ -27,6 +27,8 @@ Record audio and video with browser features. No paper work. Store your recorded
 
 ![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/homepage-1.jpg)
 
+![image](https://github.com/vulchivijay/record-voice/blob/main/public/screenshots/homepage-2.jpg)
+
 
 ### Signed user page designs
 

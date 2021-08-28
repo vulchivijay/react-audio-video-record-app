@@ -46,7 +46,7 @@ export const RecordStartVideo = () => {
                          navigator.mozGetUserMedia;
 
   if (navigator.getUserMedia) {
-    navigator.getUserMedia({ audio: true, video: { width: 640, height: 480 } },
+    navigator.getUserMedia({ audio: false, video: { width: 640, height: 480 } },
         function(stream) {
           RecordVideo(true);
           rec = new MediaRecorder(stream);
