@@ -33,6 +33,29 @@ export function RecordingStopped(payload) {
   }
 }
 
+export function RecordedAudioReview(payload) {
+  return store.dispatch(AudioReview(payload))
+}
+
+export function AudioReview(payload) {
+  console.log('test audio preview: ', payload);
+  return {
+    type: "ISAUDIOPREVIEW",
+    isAudioReview: payload,
+  }
+}
+
+export function RecordedVideoReview(payload) {
+  return store.dispatch(VideoReview(payload))
+}
+
+export function VideoReview(payload) {
+  return {
+    type: "ISVIDEOPREVIEW",
+    isVideoReview: payload,
+  }
+}
+
 export function ClockStartStop(payload) {
   return store.dispatch(Clock(payload))
 }

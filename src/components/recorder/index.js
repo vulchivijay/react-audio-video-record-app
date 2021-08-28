@@ -12,19 +12,18 @@ import './index.css';
 
 export default function Recorder () {
   const user = useContext(UserContext);
-  const { isAudio, isRecordStopoed, isVideo } = store.getState();
+  const { isAudio, isRecordStopoed, isVideo, isAudioReview, isVideoReview } = store.getState();
 
   return (
     <div className="recorder">
-      { isVideo ? (
-        <div className="recorded-video">
-			    <video id="recordedVideo" preload="true"></video>
-        </div>) : ''}
+      <div className={"recorded-video" + (isVideoReview ? '': ' hide ') }>
+        <video id="recordedVideo" preload="true"></video>
+      </div>
       { isAudio ? (
         <div className="recorder-animation">
           <Waves />
         </div>) : ''}
-      { !isVideo ? (
+      { !isVideo && !isVideoReview ? (
       <div className="recorder-timer">
         <TimeSpinner />
       </div>) : ''}
@@ -60,8 +59,8 @@ export default function Recorder () {
           <p>You can check now! Try your self!!!</p>
         </div>
       )}
-      <div className="recorded-audio">
-			  <audio id="recordedAudio" preload="true"></audio>
+      <div className={"recorded-audio" + (isAudioReview ? '': ' hide ') }>
+        <audio id="recordedAudio" preload="true"></audio>
       </div>
     </div>
   );
